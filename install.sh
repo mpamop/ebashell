@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+IFS=$'\n'
 decoration() {
 apt-get update -yq --silent
 apt-get install gnupg -yq --silent
