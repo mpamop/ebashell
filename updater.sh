@@ -1,3 +1,4 @@
+IFS=$'\n'
 cd ~
 echo "Updating..."
 if [ -f install.sh ]; then rm -f install.sh; fi
