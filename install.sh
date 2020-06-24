@@ -12,7 +12,7 @@ touch .termux_data_15061
 if [ -f updater.sh ]; then rm updater.sh; fi
 echo "[*] Applying..."
 decoration
-rm -r $PREFIX/etc/motd
+rm -r $PREFIX/etc/motd > /dev/null
 cp $PREFIX/etc/bash.bashrc $PREFIX/etc/bash.bashrc.bk
 cd ~
 wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
