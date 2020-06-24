@@ -3,6 +3,7 @@ IFS=$'\n'
 decoration() {
 apt-get update -yq --silent
 apt-get install gnupg -yq --silent
+apt-get install neofetch -yq --silent
 mkdir -p ~/.termux
 for i in colors.properties termux.properties font.tff; do
 wget -q https://github.com/wardsenz/ebashell/raw/master/style/$i -O ~/.termux/$i
@@ -12,7 +13,7 @@ touch .termux_data_15061
 if [ -f updater.sh ]; then rm updater.sh; fi
 echo "[*] Applying..."
 decoration
-rm -r $PREFIX/etc/motd > /dev/null
+if [ -f $PREFIX/etc/motd ]; then rm -r $PREFIX/etc/motd; fi
 cp $PREFIX/etc/bash.bashrc $PREFIX/etc/bash.bashrc.bk
 cd ~
 wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
