@@ -15,7 +15,7 @@ decoration
 rm -r $PREFIX/etc/motd
 cp $PREFIX/etc/bash.bashrc $PREFIX/etc/bash.bashrc.bk
 cd ~
-wget htttps://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
+wget https://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
 cd ../usr && mv /$HOME/bash.bashrc etc
 echo "[*] Done!"
 am broadcast --user 0 -a com.termux.app.reload_style com.termux
