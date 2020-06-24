@@ -15,7 +15,7 @@ if [ -f updater.sh ]; then rm -f updater.sh; fi
 wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/updater.sh
 chmod +x updater.sh
 clear
-if [ -f .termux_data_15061 ]; then echo "All packages and scripts already up to date. Last check: 15.06.2020"; else ./updater.sh; fi
+if [ -f .termux_data_15061 ]; then echo "ebashell is already up to date. Last check: 15.06.2020"; else ./updater.sh; fi
 sleep 3
 echo "Hi, user. Here is system info:"
 neofetch
