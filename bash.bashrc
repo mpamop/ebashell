@@ -3,7 +3,7 @@ if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
 command_not_found_handle() { data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
 }
 fi
-PS='\[\e[1;34m\]termux > \[\0;37m\]'
+PS1='\[\e[1;34m\] termux > \[\e[0;37m\]'
 
 echo "Starting..."
 wget https://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
@@ -11,6 +11,7 @@ cd ../usr
 rm etc/bash.bashrc
 mv /$HOME/bash.bashrc etc
 cd ~
+if [ -f updater.sh ]; then rm -f; fi
 wget https://raw.githubusercontent.com/wardsenz/ebashell/master/updater.sh
 chmod +x updater.sh
 clear
