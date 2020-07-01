@@ -4,6 +4,7 @@ decoration() {
 apt-get update -yq --silent
 apt-get install gnupg -yq --silent
 apt-get install curl -yq --silent
+apt-get install wget -yq --silent
 apt-get install neofetch -yq --silent
 apt-get install ncurses-utils -yq --silent
 mkdir -p ~/.termux
