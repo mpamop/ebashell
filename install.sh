@@ -17,11 +17,12 @@ if [ -f $PREFIX/etc/motd ]; then rm -r $PREFIX/etc/motd; fi
 cd $PREFIX/bin
 if [ -f ebashell-update ]; then rm -f ebashell-update; fi
 wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/updater.sh && mv updater.sh ebashell-update && chmod +x ebashell-update
-cd $PREFIX/etc && mv bash.bashrc && wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
-if [ -f $PREFIX/share/ebashell/data.json ]; then
-	rm -f $PREFIX/share/ebashell/data.json
-fi
-cd $PREFIX/share/ebashell && touch data.json
+cd $PREFIX/etc && rm bash.bashrc && wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/bash.bashrc
+cd $PREFIX
+if [ -d share/ebashell ]; then rm -rf share/ebashell; fi
+cd share
+git clone https://github.com/wardsenz/ebashell > /dev/null
+cd ebashell && touch data.json
 echo "01.07.2020" > data.json
 echo "$(date)" >> data.json
 cd $HOME
