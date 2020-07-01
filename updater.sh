@@ -15,12 +15,13 @@ update() {
 	printf "Не удалось проверить соединение с интернетом.\n"
 fi
 }
-lastup=$(cat $PREFIX/share/data.json)
+lastupd=$(cat $PREFIX/share/ebashell/data.json)
 printf "$lastupd\n"
 read -p "Вы уверены? (y/n) " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	update
 else
+	printf "\n"
 	printf "Отменено.\n"
 fi
