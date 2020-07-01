@@ -21,7 +21,6 @@ lastupd_rep=$(cat $PREFIX/share/ebashell/data.json | head -1)
 lastupd_check=$(cat $PREFIX/share/ebashell/data.json | head -2)
 printf "Последнее обновление репозитория: $lastupd_rep\n"
 printf "Последняя проверка: $lastupd_check\n"
-echo "--------"
 read -p "Вы уверены? (y/n)\n" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
