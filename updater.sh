@@ -1,7 +1,7 @@
 #!/bin/bash
 IFS=$'\n'
 update() {
-	if [ $(curl --silent --output /dev/null google.com) ]
+	if [ "$(curl -I --silent google.com)" ]
 	then
 		printf "Обновление...\n"
 		RAW="https://raw.githubusercontent.com/wardsenz/ebashell/master/"
@@ -19,9 +19,10 @@ fi
 }
 lastupd_rep=$(cat $PREFIX/share/ebashell/data.json | head -1)
 lastupd_check=$(cat $PREFIX/share/ebashell/data.json | head -2)
-read -p "Вы уверены? (y/n)" -n 1 -r
 printf "Последнее обновление репозитория: $lastupd_rep\n"
 printf "Последняя проверка: $lastupd_check\n"
+printf "--------"
+read -p "Вы уверены? (y/n)" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	update
