@@ -23,8 +23,8 @@ if [ -d share/ebashell ]; then rm -rf share/ebashell; fi
 cd share
 git clone https://github.com/wardsenz/ebashell > /dev/null
 cd ebashell && touch data.json
-echo "01.07.2020" > data.json
-echo "$(date)" >> data.json
+echo "Последнее обновление репозитория: 01.07.2020" > data.json
+echo "Дата установки/Последней проверки: $(date)" >> data.json
 cd $HOME
 echo "[*] Успешно!"
 am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
