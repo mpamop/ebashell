@@ -7,7 +7,7 @@ fi
 # PS1='\[\e[1;34m\] termux > \[\e[0;37m\]'
 export PS1="╭─\[\e[1;34m\] termux \[\e[0;37m\][\w] \A
 ╰─> $ "
-neofetch
+minfetch
 COLUMNS=$(tput cols) 
-title="Обновить: ebashell-update • Помощь в TG: @friendlytgbot_ru" 
+title="Обновить: ebashell-update • Минифеч: minfetch • Помощь в TG: @friendlytgbot_ru" 
 printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
