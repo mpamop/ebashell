@@ -57,7 +57,8 @@ update_bashrc
 		git clone https://github.com/wardsenz/ebashell > /dev/null 2>&1
 		cd ebashell
 		touch data.json
-		curl https://api.github.com/repos/wardsenz/ebashell/commits/master 2>&1 | grep '"date"' | tr -d ' :"date' | tail -n 1 > data.json
+		lastcommit=$(curl https://api.github.com/repos/wardsenz/ebashell/commits/master 2>&1 | grep '"date"' | tr -d ' :"date' | tail -n 1)
+		echo "Последний коммит в репозитории: $lastcommit" > data.json
 		echo "Дата установки/последней проверки: $(date)" >> data.json
 		cd $HOME
 		}
