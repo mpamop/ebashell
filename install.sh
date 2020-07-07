@@ -21,7 +21,7 @@ decoration
 
 	cd $PREFIX/bin
 
-	updatefile() {
+	update_updater() {
 		if [ -f ebashell-update ]; then
 			rm -f ebashell-update;
 		fi
