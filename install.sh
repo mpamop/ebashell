@@ -60,7 +60,7 @@ update_bashrc
 		echo "Дата установки/последней проверки: $(date)" >> data.json
 		cd $HOME
 		}
-
+update_clone
 	echo "[*] Успешно!"
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
 	echo "[*] Пожалуйста, перезапустите Termux..."
