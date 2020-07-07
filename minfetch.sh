@@ -20,6 +20,11 @@ N='\033[0m'
 		echo -e "## ${G}Kernel:${N} $(uname -r)"
 		}
 
+	# Аптайм
+	uptime_info() {
+		echo -e "## ${G}Uptime:${N} $(uptime | awk -F'( |,|:)+' '{print $6,$7",",$8,"hours,",$9,"minutes."}')"
+		}
+
 	# Бренд
 	model_info() {
 		echo -e "## ${G}Model:${N} $(getprop ro.product.brand)"
@@ -74,6 +79,7 @@ N='\033[0m'
 user_info
 host_info
 kernel_info
+uptime_info
 model_info
 device_info
 ram_info
