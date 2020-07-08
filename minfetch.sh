@@ -76,14 +76,44 @@ N='\033[0m'
 		neofetch --logo --ascii_distro android_small
 		}
 
-user_info
-host_info
-kernel_info
-uptime_info
-model_info
-device_info
-ram_info
-disk_info
-apicheck
-version_info
-neo_logo
+	## Отображение текущего медиа-контента
+	# YouTube
+	now_playing_yt() {
+		echo -e "## ${G}Now playing: ${B}$(termux-notification-list | jq '[.[]| select( .packageName == "com.vanced.android.youtube")][0] | .title' | tr -d '"') - $(termux-notification-list | jq '[.[]| select( .packageName == "com.vanced.android.youtube")][0] | .content' | tr -d '"')${N}"
+		}
+
+	# Spotify
+	now_playing_sp() {
+		echo -e "## ${G}Now playing: ${B}$(termux-notification-list | jq '[.[]| select( .packageName == "com.spotify.music")][0] | .title' | tr -d '"') - $(termux-notification-list | jq '[.[]| select( .packageName == "com.spotify.music")][0] | .content' | tr -d '"')${N}"
+		}
+
+	# Yandex.Music
+	now_playing_ym() {
+		echo -e "## ${G}Now playing: ${B}$(termux-notification-list | jq '[.[]| select( .packageName == "ru.yandex.music")][0] | .title' | tr -d '"') - $(termux-notification-list | jq '[.[]| select( .packageName == "ru.yandex.music")][0] | .content' | tr -d '"')${N}"
+		}
+
+	# Deezer
+	now_playing_dz() {
+		echo -e "## ${G}Now playing: ${B}$(termux-notification-list | jq '[.[]| select( .packageName == "deezer.android.app")][0] | .title' | tr -d '"') - $(termux-notification-list | jq '[.[]| select( .packageName == "deezer.android.app")][0] | .content' | tr -d '"')${N}"
+		}
+
+	# Проверяем, существует ли конфиг и запускаем по конфигу. Если его нет - запуск со стандартными параметрами.
+	if [ -f $HOME/.config/minfetch/minconf.conf ]; then
+		fileconf=$HOME/.config/minfetch/minconf.conf
+		for min in $(cat $fileconf | grep -v '^#')
+			# Спасибо stackoverflow.com/questions/12488556/bash-loop-skip-commented-lines
+		do
+			$min
+		done
+	else
+		user_info
+		host_info
+		kernel_info
+		uptime_info
+		model_info
+		device_info
+		ram_info
+		disk_info
+		version_info
+		neo_logo
+	fi
