@@ -19,6 +19,12 @@ decoration
 		rm -r $PREFIX/etc/motd;
 	fi
 
+	if ! [ -d $HOME/.config/minfetch ]; then
+		mkdir -p $HOME/.config/minfetch
+		cd $HOME/.config/minfetch
+		wget -q https://raw.githubusercontent.com/wardsenz/ebashell/master/minconf.conf
+	fi
+
 	cd $PREFIX/bin
 
 	update_updater() {
