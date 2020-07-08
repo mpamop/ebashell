@@ -5,6 +5,24 @@ G='\033[0;32m'
 B='\033[0;36m'
 N='\033[0m'
 
+	# Отображение --help
+	show_help() {
+	echo ""
+	echo "Help for minfetch"
+	echo ""
+	echo "Usage: "
+	echo "  minfetch"
+	echo ""
+	echo 'Available args: --help (display this help)'
+	echo -e "${B}The configuration file in the .config folder of home path${N}"
+	echo ""
+	exit 1
+	}
+		if [ "$1" = "--help" ]; then
+			show_help
+			exit 0
+		fi
+
 	# Имя пользователя
 	user_info() {
 		echo -e "## ${G}User:${N} $(id -un || printf %s "${HOME/*\/}")"
