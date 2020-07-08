@@ -16,7 +16,7 @@ N='\033[0m'
 	echo 'Available args: --help (display this help)'
 	echo -e "${B}The configuration file in the .config folder of home path${N}"
 	echo ""
-	exit 1
+	exit 0
 	}
 		if [ "$1" = "--help" ]; then
 			show_help
