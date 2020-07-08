@@ -9,5 +9,8 @@ export PS1="╭─\[\e[1;34m\] termux \[\e[0;37m\][\w] \A
 ╰─> $ "
 minfetch
 COLUMNS=$(tput cols) 
-title="Обновить: ebashell-update • Минифеч: minfetch • Помощь в TG: @friendlytgbot_ru" 
+title="Обновить: ebashell-update • Минифеч: minfetch --help • Помощь в TG: @friendlytgbot_ru" 
 printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
