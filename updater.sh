@@ -3,6 +3,7 @@ IFS=$'\n'
 update() {
 	if [ "$(curl -I --silent google.com)" ]
 	then
+		printf "\n"
 		printf "Обновление...\n"
 		cd $PREFIX/share/ebashell
 		if [ -f install.sh ]; then rm -f install.sh; fi
@@ -16,7 +17,9 @@ update() {
 fi
 }
 lastupd=$(cat $PREFIX/share/ebashell/data.json)
+lastcommit=$(curl https://api.github.com/repos/wardsenz/ebashell/commits/master 2>&1 | grep '"date"' | tr -d ' :"date' | tail -n 1)
 printf "$lastupd\n"
+printf "Последнее изменение в репозитории: $lastcommit\n"
 read -p "Вы уверены? (y/n) " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
