@@ -2,7 +2,7 @@
 IFS=$'\n'
 decoration() {
 apt-get update -yq --silent
-apt-get install gnupg curl wget neofetch termux-api ncurses-utils git jq
+apt-get install gnupg curl wget neofetch termux-api ncurses-utils git jq -y
 mkdir -p ~/.termux
 for i in colors.properties termux.properties font.tff; do
 wget -q https://github.com/wardsenz/ebashell/raw/master/style/$i -O ~/.termux/$i
