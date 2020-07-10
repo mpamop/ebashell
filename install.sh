@@ -2,12 +2,7 @@
 IFS=$'\n'
 decoration() {
 apt-get update -yq --silent
-apt-get install gnupg -yq --silent
-apt-get install curl -yq --silent
-apt-get install wget -yq --silent
-apt-get install neofetch -yq --silent
-apt-get install termux-api -yq --silent
-apt-get install ncurses-utils -yq --silent
+apt-get install gnupg curl wget neofetch termux-api ncurses-utils git jq
 mkdir -p ~/.termux
 for i in colors.properties termux.properties font.tff; do
 wget -q https://github.com/wardsenz/ebashell/raw/master/style/$i -O ~/.termux/$i
@@ -63,9 +58,7 @@ update_bashrc
 		git clone https://github.com/wardsenz/ebashell > /dev/null 2>&1
 		cd ebashell
 		touch data.json
-		lastcommit=$(curl https://api.github.com/repos/wardsenz/ebashell/commits/master 2>&1 | grep '"date"' | tr -d ' :"date' | tail -n 1)
-		echo "Последний коммит в репозитории: $lastcommit" > data.json
-		echo "Дата установки/последней проверки: $(date)" >> data.json
+		echo "Дата установки/последней проверки: $(date)" > data.json
 		cd $HOME
 		}
 update_clone
