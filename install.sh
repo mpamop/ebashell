@@ -62,6 +62,6 @@ update_bashrc
 		cd $HOME
 		}
 update_clone
-	echo "[*] Успешно!"
+	echo "[*] Успешно! Здесь был @mpamop"
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
 	echo "[*] Пожалуйста, перезапустите Termux..."
