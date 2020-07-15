@@ -65,3 +65,4 @@ update_clone
 	echo "[*] Успешно!"
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
 	echo "[*] Пожалуйста, перезапустите Termux..."
+        echo "[*] Здесь был @mpamop"
